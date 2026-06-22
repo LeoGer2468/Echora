@@ -268,3 +268,69 @@ textarea{
     height:1px;
     background:#2b2139;
 }
+.profile-container{
+    width:min(1000px,90%);
+    margin:auto;
+    padding:30px;
+}
+
+.banner{
+    height:250px;
+
+    background:linear-gradient(
+        135deg,
+        #8b5cf6,
+        #3b246c
+    );
+
+    border-radius:20px;
+}
+
+.profile-info{
+    margin-top:-60px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.profile-pfp{
+    width:120px;
+    height:120px;
+
+    border-radius:50%;
+
+    background:#8b5cf6;
+
+    border:5px solid var(--bg);
+}
+
+.bio{
+    opacity:.8;
+}
+
+.profile-actions{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+    margin-top:20px;
+}
+
+.font-select{
+    margin-top:20px;
+}
+
+select{
+    background:var(--surface);
+
+    color:var(--text);
+
+    border:1px solid #322548;
+
+    padding:10px;
+
+    border-radius:10px;
+}
