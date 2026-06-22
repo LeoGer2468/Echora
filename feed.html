@@ -11,33 +11,23 @@
         <h1 class="logo">ECHORA</h1>
 
         <div class="post-box">
-            <textarea placeholder="What's on your mind?"></textarea>
-            <button>Post</button>
+            <textarea
+id="postInput"
+placeholder="What's on your mind?">
+</textarea>
+
+<button id="postBtn">
+    Post
+</button>
         </div>
 
         <div class="divider"></div>
 
-        <div class="post">
-            <div class="user">
-                <div class="pfp"></div>
-                <span>Leo</span>
-            </div>
-
-            <p>Hello Echora!</p>
-        </div>
-
-        <div class="divider"></div>
-
-        <div class="post">
-            <div class="user">
-                <div class="pfp"></div>
-                <span>Sarah</span>
-            </div>
-
-            <p>I drew something cool today.</p>
-        </div>
+        <div id="feedPosts"></div>
 
     </div>
 
+    <script type="module" src="js/feed.js"></script>
+    
 </body>
 </html>
