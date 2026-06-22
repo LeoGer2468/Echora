@@ -1,18 +1,29 @@
-import { app } from "./firebase.js";
+import { auth, db } from "./firebase.js";
 
 import {
-    getAuth,
     createUserWithEmailAndPassword
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 
-const auth = getAuth(app);
+import {
+    doc,
+    setDoc
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
 const signupBtn = document.getElementById("signupBtn");
 
+console.log("Button found");
 signupBtn.addEventListener("click", async () => {
 
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
+       console.log("Signup clicked");
+
+    const username =
+        document.getElementById("username").value;
+
+    const email =
+        document.getElementById("email").value;
+
+    const password =
+        document.getElementById("password").value;
 
     try {
 
@@ -23,6 +34,18 @@ signupBtn.addEventListener("click", async () => {
                 password
             );
 
+        await setDoc(
+            doc(db, "users", userCredential.user.uid),
+            {
+                username: username,
+                bio: "",
+                font: "Trebuchet MS",
+                pfp: "",
+                banner: "",
+                createdAt: Date.now()
+            }
+        );
+
         alert("Account created!");
 
         window.location.href = "feed.html";
@@ -30,6 +53,8 @@ signupBtn.addEventListener("click", async () => {
     } catch (error) {
 
         alert(error.message);
+
+        console.error(error);
 
     }
 
