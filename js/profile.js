@@ -4,9 +4,11 @@ import {
     onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 
+
 import {
     doc,
-    getDoc
+    getDoc,
+    updateDoc
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
 onAuthStateChanged(auth, async (user) => {
@@ -30,6 +32,29 @@ onAuthStateChanged(auth, async (user) => {
         document.getElementById("profileBio").textContent =
             data.bio || "No bio yet.";
 
+            document.getElementById("bioInput").value =
+    data.bio || "";
+
     }
+
+    const saveBtn = document.getElementById("saveBioBtn");
+
+saveBtn.addEventListener("click", async () => {
+
+    const newBio =
+        document.getElementById("bioInput").value;
+
+    await updateDoc(
+        doc(db, "users", user.uid),
+        {
+            bio: newBio
+        }
+    );
+
+    document.getElementById("profileBio").textContent =
+        newBio;
+
+    alert("Bio saved!");
+});
 
 });

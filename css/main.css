@@ -334,3 +334,23 @@ select{
 
     border-radius:10px;
 }
+#bioInput{
+    width:300px;
+    min-height:80px;
+
+    margin-top:15px;
+
+    background:var(--surface);
+
+    color:var(--text);
+
+    border:1px solid #322548;
+
+    border-radius:10px;
+
+    padding:10px;
+
+    resize:none;
+
+    font-family:'Blinker',sans-serif;
+}
