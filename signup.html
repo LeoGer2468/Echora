@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Login - Echora</title>
+    <title>Sign Up - Echora</title>
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
@@ -10,21 +10,26 @@
 
         <h1 class="logo">ECHORA</h1>
 
+        <label>Username</label>
+        <input id="username" type="text">
+
         <label>Email</label>
-        <input type="email">
+        <input id="email" type="email">
 
         <label>Password</label>
-        <input type="password">
+        <input id="password" type="password">
 
-        <button>Sign Up</button>
+        <button id="signupBtn">Sign Up</button>
 
         <p>
             Have an account?
-            <a href="login.html">    Log in</a>
+            <a href="login.html">Log In</a>
         </p>
 
     </div>
-    
-<script src="js/draw.js"></script>
+
+    <script type="module" src="js/auth.js"></script>
+    <script src="js/draw.js"></script>
+
 </body>
 </html>
