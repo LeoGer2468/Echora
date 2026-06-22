@@ -11,10 +11,8 @@ import {
 
 const signupBtn = document.getElementById("signupBtn");
 
-console.log("Button found");
 signupBtn.addEventListener("click", async () => {
 
-       console.log("Signup clicked");
 
     const username =
         document.getElementById("username").value;
