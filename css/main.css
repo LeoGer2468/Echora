@@ -248,7 +248,11 @@ textarea{
 
     border-radius:50%;
 
-    background:var(--purple);
+    object-fit:cover;
+
+    background:#8b5cf6;
+
+    flex-shrink:0;
 }
 
 .timestamp{

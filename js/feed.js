@@ -45,20 +45,28 @@ onAuthStateChanged(auth, async (user) => {
 
             const post = docSnap.data();
 
-            feedPosts.innerHTML += `
-                <div class="post">
+          feedPosts.innerHTML += `
+<div class="post">
 
-                    <div class="user">
-                        <div class="pfp"></div>
-                        <span>${post.authorName}</span>
-                    </div>
+    <div class="user">
 
-                    <p>${post.content}</p>
+        <img
+        class="pfp"
+        src="${post.authorPfp || ''}"
+        alt="PFP">
 
-                </div>
+        <span>${post.authorName}</span>
 
-                <div class="divider"></div>
-            `;
+    </div>
+
+    <div class="post-content">
+        ${post.content}
+    </div>
+
+</div>
+
+<div class="divider"></div>
+`;
         });
 
     }
@@ -75,14 +83,15 @@ const userData = userDoc.data();
         if (!content) return;
 
         await addDoc(
-            collection(db, "posts"),
-            {
-                authorId: user.uid,
-                authorName: userData.username,
-                content: content,
-                createdAt: Date.now()
-            }
-        );
+    collection(db, "posts"),
+    {
+        authorId: user.uid,
+        authorName: userData.username,
+        authorPfp: userData.pfp || "",
+        content: content,
+        createdAt: Date.now()
+    }
+);
 
         postInput.value = "";
 
