@@ -55,7 +55,11 @@ onAuthStateChanged(auth, async (user) => {
         src="${post.authorPfp || ''}"
         alt="PFP">
 
-        <span>${post.authorName}</span>
+        <a
+class="username"
+href="profile.html?uid=${post.authorId}">
+${post.authorName}
+</a>
 
     </div>
 

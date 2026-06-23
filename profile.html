@@ -8,7 +8,11 @@
 
 <div class="profile-container">
 
-    <div class="banner"></div>
+     <img
+id="profileBanner"
+class="banner"
+src=""
+alt="Banner">
 
     <div class="profile-info">
 
@@ -25,6 +29,15 @@ accept="image/*">
 
 <button id="savePfpBtn">
     Upload PFP
+</button>
+
+<input
+type="file"
+id="bannerUpload"
+accept="image/*">
+
+<button id="saveBannerBtn">
+    Upload Banner
 </button>
 
         <h2 id="profileUsername">Loading...</h2>
@@ -73,11 +86,7 @@ placeholder="Tell people about yourself...">
 
     <h3>Posts</h3>
 
-    <div class="post">
-        <div class="post-content">
-            Hello Echora!
-        </div>
-    </div>
+<div id="profilePosts"></div>
 
 </div>
 

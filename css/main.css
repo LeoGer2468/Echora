@@ -279,15 +279,18 @@ textarea{
 }
 
 .banner{
+    width:100%;
     height:250px;
+
+    object-fit:cover;
+
+    border-radius:20px;
 
     background:linear-gradient(
         135deg,
         #8b5cf6,
         #3b246c
     );
-
-    border-radius:20px;
 }
 
 .profile-info{
