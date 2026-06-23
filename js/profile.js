@@ -26,6 +26,12 @@ onAuthStateChanged(auth, async (user) => {
 
         const data = userDoc.data();
 
+        if (data.pfp) {
+    document.getElementById(
+        "profilePfp"
+    ).src = data.pfp;
+}
+
         document.getElementById("profileUsername").textContent =
             data.username;
 
@@ -55,6 +61,55 @@ saveBtn.addEventListener("click", async () => {
         newBio;
 
     alert("Bio saved!");
+});
+const pfpUpload =
+    document.getElementById("pfpUpload");
+
+const savePfpBtn =
+    document.getElementById("savePfpBtn");
+
+savePfpBtn.addEventListener("click", async () => {
+
+    const file = pfpUpload.files[0];
+
+    if (!file) {
+        alert("Select an image first.");
+        return;
+    }
+
+    const formData = new FormData();
+
+    formData.append("file", file);
+    formData.append(
+        "upload_preset",
+        "echora_pfps"
+    );
+
+    const response = await fetch(
+        "https://api.cloudinary.com/v1_1/dhzrhmnho/image/upload",
+        {
+            method: "POST",
+            body: formData
+        }
+    );
+
+    const data = await response.json();
+
+    const imageUrl = data.secure_url;
+
+    await updateDoc(
+        doc(db, "users", user.uid),
+        {
+            pfp: imageUrl
+        }
+    );
+
+    document.getElementById(
+        "profilePfp"
+    ).src = imageUrl;
+
+    alert("Profile picture updated!");
+
 });
 
 });
